@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E98F481266F62D100130BE5 /* CourseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E98F480266F62D100130BE5 /* CourseDetail.swift */; };
 		B9278A92266A276800F36F84 /* DesignLearningAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9278A91266A276800F36F84 /* DesignLearningAppApp.swift */; };
 		B9278A94266A276800F36F84 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9278A93266A276800F36F84 /* ContentView.swift */; };
 		B9278A96266A276900F36F84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9278A95266A276900F36F84 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E98F480266F62D100130BE5 /* CourseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetail.swift; sourceTree = "<group>"; };
 		B9278A8E266A276800F36F84 /* DesignLearningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesignLearningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9278A91266A276800F36F84 /* DesignLearningAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignLearningAppApp.swift; sourceTree = "<group>"; };
 		B9278A93266A276800F36F84 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				B9278A91266A276800F36F84 /* DesignLearningAppApp.swift */,
 				B9278A93266A276800F36F84 /* ContentView.swift */,
+				4E98F480266F62D100130BE5 /* CourseDetail.swift */,
 				B9278A95266A276900F36F84 /* Assets.xcassets */,
 				B9278A9A266A276900F36F84 /* Persistence.swift */,
 				B9278A9F266A276900F36F84 /* Info.plist */,
@@ -147,6 +150,7 @@
 				B9278A9B266A276900F36F84 /* Persistence.swift in Sources */,
 				B9278A9E266A276900F36F84 /* DesignLearningApp.xcdatamodeld in Sources */,
 				B9278A94266A276800F36F84 /* ContentView.swift in Sources */,
+				4E98F481266F62D100130BE5 /* CourseDetail.swift in Sources */,
 				B9278A92266A276800F36F84 /* DesignLearningAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
