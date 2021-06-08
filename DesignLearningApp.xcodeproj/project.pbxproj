@@ -13,6 +13,8 @@
 		B9278A99266A276900F36F84 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9278A98266A276900F36F84 /* Preview Assets.xcassets */; };
 		B9278A9B266A276900F36F84 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9278A9A266A276900F36F84 /* Persistence.swift */; };
 		B9278A9E266A276900F36F84 /* DesignLearningApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B9278A9C266A276900F36F84 /* DesignLearningApp.xcdatamodeld */; };
+		B9E7B6EA266F569B003D3145 /* LearningPathList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E7B6E9266F569B003D3145 /* LearningPathList.swift */; };
+		B9E7B6EC266F689D003D3145 /* LearningPathItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E7B6EB266F689D003D3145 /* LearningPathItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		B9278A9A266A276900F36F84 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		B9278A9D266A276900F36F84 /* DesignLearningApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DesignLearningApp.xcdatamodel; sourceTree = "<group>"; };
 		B9278A9F266A276900F36F84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9E7B6E9266F569B003D3145 /* LearningPathList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningPathList.swift; sourceTree = "<group>"; };
+		B9E7B6EB266F689D003D3145 /* LearningPathItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningPathItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			children = (
 				B9278A91266A276800F36F84 /* DesignLearningAppApp.swift */,
 				B9278A93266A276800F36F84 /* ContentView.swift */,
+				B9E7B6E9266F569B003D3145 /* LearningPathList.swift */,
+				B9E7B6EB266F689D003D3145 /* LearningPathItem.swift */,
 				B9278A95266A276900F36F84 /* Assets.xcassets */,
 				B9278A9A266A276900F36F84 /* Persistence.swift */,
 				B9278A9F266A276900F36F84 /* Info.plist */,
@@ -148,6 +154,8 @@
 				B9278A9E266A276900F36F84 /* DesignLearningApp.xcdatamodeld in Sources */,
 				B9278A94266A276800F36F84 /* ContentView.swift in Sources */,
 				B9278A92266A276800F36F84 /* DesignLearningAppApp.swift in Sources */,
+				B9E7B6EA266F569B003D3145 /* LearningPathList.swift in Sources */,
+				B9E7B6EC266F689D003D3145 /* LearningPathItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
