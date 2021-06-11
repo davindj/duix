@@ -7,6 +7,13 @@
 
 import SwiftUI
 
+struct Question: Identifiable{
+    let id = UUID()
+    var question: String
+    var options: [Image]
+    var answer: Int = -1 // Jawaban User
+}
+
 struct QuizView: View {
     @State private var showingSheet = false
     
@@ -31,10 +38,8 @@ struct QuizModalView: View {
 }
 
 struct TempView: View {
-    @State var qIdx: Int = 1 // Pertanyaan k Brp
-    @State var aIdx: Int = 1 // Jaaban k Brp
-    @State var answers: [Int] = []
-    @State var questions: [Int] = []
+    @State var questions: [Question] = []
+    @State var showingAlert: Bool = false
     
     // Constant
     let colorNorm = Color.init(hex: "999999")
@@ -42,22 +47,84 @@ struct TempView: View {
     
     // Computed Property
     var isLastQuestion: Bool{
-        return qIdx == questions.count-1
+        return true
     }
     var btnBgColor: Color{
         return isLastQuestion ? colorLast : colorNorm
     }
     // Function
-    func changeAnswer(_ idx: Int){
-        print("Hello \(idx)")
-//        answers[qIdx] = idx
-        aIdx = idx
-        print(answers)
+    func changeAnswer(question: Question)->((Int)->Void){
+        let idx = questions.firstIndex(where: { $0.question == question.question }) ?? -1
+        return { aIdx in
+            if idx >= 0{
+                self.questions[idx].answer = aIdx
+            }
+        }
     }
     
     // View
     var body: some View {
-        VStack{
+        ScrollView{
+            VStack{
+                ForEach(questions) { question in
+                    QuestionView(aIdx: question.answer, changeAnswer: self.changeAnswer(question: question))
+                    Divider()
+                }
+                // Button Submit
+                Button {
+                    // Check apakah sudah jawab semua atau belum
+                    let isDoneAnswering = !questions.contains(where: { $0.answer == -1 })
+                    if isDoneAnswering {
+                        print("Well Done")
+                    }else{
+                        showingAlert.toggle()
+                    }
+                } label: {
+                    Text("Submit")
+                        .bold()
+                        .padding()
+                        .foregroundColor(.white)
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .background(self.btnBgColor)
+                        .cornerRadius(15)
+                }
+                .alert(isPresented: $showingAlert) {
+                    Alert(
+                        title: Text("Unable to Submit"),
+                        message: Text("Please answer all question first"),
+                        dismissButton: .default(
+                            Text("Got it.")
+                        )
+                    )
+                }
+            }
+            .padding(.horizontal, 30)
+            .padding(.top, 40)
+        }
+        .onAppear{ initQuiz() }
+    }
+    
+    // Constructor?
+    func initQuiz(){
+        let listQuestion: [Question] = [
+            Question(question: "Mana yang merupakan kombinasi typography terbaik?", options: []),
+            Question(question: "Mana yang merupakan kombinasi terbaik?", options: []),
+            Question(question: "Mana yang merupakan typography terbaik?", options: []),
+            Question(question: "Mana yang merupakan kombinasi typography?", options: []),
+            Question(question: "Mana kombinasi typography terbaik?", options: [])
+        ]
+        self.questions = listQuestion
+        print("Struct updated")
+    }
+}
+
+struct QuestionView: View{
+    // Dari Parent
+    var aIdx: Int
+    var changeAnswer: (Int) -> Void
+    // Return
+    var body: some View{
+        Group{
             // Pertanyaan
             HStack{
                 Text("Mana yang merupakan kombinasi typography terbaik?")
@@ -66,9 +133,7 @@ struct TempView: View {
                     .foregroundColor(Color.init(hex: "105476"))
                     .lineLimit(3)
                 Spacer()
-            }
-            // Spacer
-            Spacer()
+            }.padding(.bottom)
             // Jawaban
             VStack(spacing: 10){
                 HStack{
@@ -80,48 +145,7 @@ struct TempView: View {
                     AnswerView(isChoosen: aIdx == 3, content: "Nomor 4"){ changeAnswer(3) }
                 }
             }
-            .padding(.bottom, 10)
-            
-            // Spacer
-            Spacer()
-            // Button Prev Next
-            HStack{
-                Button("Previous"){
-                    
-                }.disabled(true)
-                Spacer()
-                Button("Next"){
-                    
-                }.disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
-            }.padding(.horizontal)
-            .padding(.bottom, 10)
-            // Button Submit
-            Button {
-                print("Image tapped!")
-            } label: {
-                Text("Submit")
-                    .bold()
-                    .padding()
-                    .foregroundColor(.white)
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .background(self.btnBgColor)
-                    .cornerRadius(15)
-            }
-            .disabled(/*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
         }
-        .padding(.horizontal, 30)
-        .padding(.top, 40)
-        .onAppear(perform: self.onAppear)
-    }
-    
-    // Constructor?
-    func onAppear(){
-        questions += [1,2,3,4,5]
-        for _ in questions{
-            answers.append(-1)
-        }
-        qIdx = 0
-        aIdx = -1
     }
 }
 
