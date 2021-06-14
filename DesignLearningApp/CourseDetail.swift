@@ -15,14 +15,11 @@ struct CourseDetail: View {
                     
                     title()
                         
-                    subline()
-                        
-                    tracker()
+                    sanfran()
+                                                                
+                    newyork()
                     
-                    gambar()
-                    
-                    subline2()
-                    
+                    linebawah()
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
@@ -45,52 +42,72 @@ struct title: View {
             .foregroundColor(Color("judul"))
             .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
             .padding(.bottom, 5.0)
-    }
-}
-
-struct subline: View {
-    var body: some View {
-        Text("Design a custom table cell style for nonstandard table rows. Standard styles are great for use in a variety of common scenarios, but some content or your overall app design may call for a heavily customized table appearance. To learn how to create your own cells, see Customizing Cells in Table View Programming Guide for iOS.")
+        
+        Text("Apple provides two type families you can use in your iOS apps.")
             .font(.footnote)
             .fontWeight(.regular)
             .multilineTextAlignment(.leading)
     }
 }
 
-struct tracker: View {
+struct sanfran: View {
     var body: some View {
-        Text("Most Contaced Tracker")
-            .font(.body)
-            .fontWeight(.regular)
-            .foregroundColor(Color.gray)
-            .padding(.top)
-            
+        Text("San Fransisco (SF)")
+            .font(.footnote)
+            .fontWeight(.bold)
+            .multilineTextAlignment(.leading)
+            .padding(.top, 2.0)
         
-        Text("doubleclick.net was prevented from profiling you across 2 websites")
-            .font(.body)
-            .fontWeight(.semibold)
-            .padding(.bottom, 5.0)
-    }
-}
-
-struct gambar: View {
-    var body: some View {
-        Image("gambar_typo")
+        Text("San Francisco is a sans serif type family that includes SF Pro, SF Pro Rounded, SF Mono, SF Compact, and SF Compact Rounded. SF Pro is the system font in iOS, macOS, and tvOS; SF Compact is the system font in watchOS. Designed to match the visual clarity of the platform UIs, the system fonts are legible and neutral.")
+            .font(.footnote)
+            .fontWeight(.regular)
+            .multilineTextAlignment(.leading)
+        
+        Image("sf_font")
             .resizable()
-            .frame(width: /*@START_MENU_TOKEN@*/360.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/231.0/*@END_MENU_TOKEN@*/)
-            .cornerRadius(10)
             .aspectRatio(contentMode: .fit)
+            .frame(width: /*@START_MENU_TOKEN@*/360.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
+            .cornerRadius(10)
             .clipped()
     }
 }
 
-struct subline2: View {
+
+struct newyork: View {
     var body: some View {
-        Text("Design a custom table cell style for nonstandard table rows. Standard styles are great for use in a variety of common scenarios, but some content or your overall app design may call for a heavily customized table appearance. To learn how to create your own cells, see Customizing Cells in Table View Programming Guide for iOS.")
+        Text("New York (NY)")
+            .font(.footnote)
+            .fontWeight(.bold)
+            .multilineTextAlignment(.leading)
+            .padding(.top, 2.0)
+        
+        Text("New York is a serif typeface that provides a unique tone designed to complement the SF fonts. NY works as well in a graphic display context (at large sizes) as it does in a reading context (at text sizes).")
             .font(.footnote)
             .fontWeight(.regular)
-            .padding(.top, 5.0)
-            
+            .multilineTextAlignment(.leading)
+        
+        Image("ny_font")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: /*@START_MENU_TOKEN@*/360.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100.0/*@END_MENU_TOKEN@*/)
+            .cornerRadius(10)
+            .clipped()
+    }
+}
+
+struct linebawah: View {
+    var body: some View {
+        Text("Beginning in iOS 14, the system provides the San Francisco and New York fonts in the variable font format. This format combines different font styles together in one file, and supports interpolation between styles to create intermediate ones. With interpolation, typefaces can adapt to all sizes while appearing specifically designed for each size.")
+            .font(.footnote)
+            .fontWeight(.regular)
+            .multilineTextAlignment(.leading)
+        
+        Text("Interpolation also enables optical sizing, which refers to the creation of different typographic designs to fit different sizes. In iOS 14 and later, the system fonts support dynamic optical sizes, merging a font's discrete optical sizes — such as Text and Display for SF Pro and SF Compact, and Small, Medium, Large, and Extra Large for New York — into a single, continuous design. This design allows each glyph or letterform to be interpolated to produce a structure that’s precisely adapted to the point size.")
+            .font(.footnote)
+            .fontWeight(.regular)
+            .multilineTextAlignment(.leading)
+            .padding(.top, 2.0)
+        
         Button(action: {
             
             print("ASHIAP")
