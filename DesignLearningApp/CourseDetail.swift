@@ -22,15 +22,16 @@ struct CourseDetail: View {
                     Text("Design a custom table cell style for nonstandard table rows. Standard styles are great for use in a variety of common scenarios, but some content or your overall app design may call for a heavily customized table appearance. To learn how to create your own cells, see Customizing Cells in Table View Programming Guide for iOS.")
                         .font(.footnote)
                         .multilineTextAlignment(.leading)
-                        .padding(.bottom, 10.0)
+                        
                     
                     Text("Most Contaced Tracker")
-                        .font(.footnote)
+                        .font(.body)
                         .foregroundColor(Color.gray)
+                        .padding(.top)
                         
                     
                     Text("doubleclick.net was prevented from profiling you across 2 websites")
-                        .font(.footnote)
+                        .font(.body)
                         .padding(.bottom, 5.0)
                     
                     
@@ -58,6 +59,7 @@ struct CourseDetail: View {
                             .cornerRadius(10)
                         
                     }
+                    .padding(.top)
                     
                         
                     Spacer()
