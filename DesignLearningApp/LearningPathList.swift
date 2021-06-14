@@ -17,7 +17,7 @@ struct LearningPathList: View {
                 }
                 Spacer().frame(height:32)
                 Button(action: {}, label: {
-                    Text("Add new goal").bold()
+                    Text("Add New Goals").bold()
                 })
                 .frame(maxWidth:343)
                 .padding(.vertical)
