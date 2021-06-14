@@ -16,28 +16,31 @@ struct Question: Identifiable{
 
 struct QuizView: View {
     @State private var showingSheet = false
+    @State private var showingResultSheet = false
+    @State private var result: Float = 0
+    
+    func quizSubmit(score: Float){
+        result = score
+        showingResultSheet = true
+        showingSheet = false
+    }
     
     var body: some View {
         Button("Show Sheet") {
-            showingSheet.toggle()
+            showingSheet = true
         }
         .sheet(isPresented: $showingSheet) {
-            QuizModalView(isPresented: $showingSheet)
+            QuizModalView(onQuizSubmit: quizSubmit)
+        }
+        .sheet(isPresented: $showingResultSheet){
+            QuizResultView(isPresenting: $showingResultSheet, scoreValue: result)
         }
     }
 }
 
 struct QuizModalView: View {
-    @Binding var isPresented: Bool
-
-    var body: some View {
-        VStack{
-            TempView()
-        }
-    }
-}
-
-struct TempView: View {
+    var onQuizSubmit: (Float)->Void
+    
     @State var questions: [Question] = []
     @State var showingAlert: Bool = false
     
@@ -75,6 +78,14 @@ struct TempView: View {
                     // Check apakah sudah jawab semua atau belum
                     let isDoneAnswering = !questions.contains(where: { $0.answer == -1 })
                     if isDoneAnswering {
+                        var score: Float = 0
+                        for question in questions{
+                            if question.answer == 0{
+                                score += 1
+                            }
+                        }
+                        score = score / Float(questions.count)
+                        self.onQuizSubmit(score)
                         print("Well Done")
                     }else{
                         showingAlert.toggle()
@@ -118,6 +129,7 @@ struct TempView: View {
     }
 }
 
+// MARK: Question View (Component)
 struct QuestionView: View{
     // Dari Parent
     var aIdx: Int
@@ -149,7 +161,7 @@ struct QuestionView: View{
     }
 }
 
-// MARK: Answer View
+// MARK: Answer View (Component)
 struct AnswerView: View {
     var isChoosen: Bool
     var content: String
@@ -182,6 +194,6 @@ struct AnswerView: View {
 struct QuizView_Previews: PreviewProvider {
     static var previews: some View {
         QuizView()
-        TempView()
+//        QuizModalView()
     }
 }

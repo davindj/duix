@@ -64,8 +64,7 @@
 		B9278A90266A276800F36F84 /* DesignLearningApp */ = {
 			isa = PBXGroup;
 			children = (
-				B9B771562670C49A00C67852 /* QuizResultView.swift */,
-				B9B771582670C8AB00C67852 /* ProgressBarView.swift */,
+				D72D6573267338560027CAEC /* components */,
 				D7432B4B266DFEDB00F84470 /* views */,
 				B9278A91266A276800F36F84 /* DesignLearningAppApp.swift */,
 				B9278A93266A276800F36F84 /* ContentView.swift */,
@@ -87,9 +86,18 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		D72D6573267338560027CAEC /* components */ = {
+			isa = PBXGroup;
+			children = (
+				B9B771582670C8AB00C67852 /* ProgressBarView.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
 		D7432B4B266DFEDB00F84470 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				B9B771562670C49A00C67852 /* QuizResultView.swift */,
 				D7D3183C2670BB460049A695 /* QuizView.swift */,
 			);
 			path = views;
