@@ -11,7 +11,7 @@ struct LearningPathList: View {
     var paths = ["Beginer", "Intermediate", "Expert"]
     var body: some View {
         NavigationView{
-            VStack(alignment:.leading){
+            VStack(alignment:.center){
                 ForEach(paths.sorted(), id: \.self){path in
                     LearningPathItem(path: path)
                 }
