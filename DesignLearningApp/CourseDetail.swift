@@ -14,13 +14,14 @@ struct CourseDetail: View {
                 VStack(alignment: .leading) {
                     Text("Typography Basics")
                         .font(.title2)
-                        .fontWeight(.medium)
+                        .fontWeight(.light)
                         .foregroundColor(Color("judul"))
                         .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
                         .padding(.bottom, 5.0)
                         
                     Text("Design a custom table cell style for nonstandard table rows. Standard styles are great for use in a variety of common scenarios, but some content or your overall app design may call for a heavily customized table appearance. To learn how to create your own cells, see Customizing Cells in Table View Programming Guide for iOS.")
                         .font(.footnote)
+                        .fontWeight(.light)
                         .multilineTextAlignment(.leading)
                         
                     
@@ -44,6 +45,7 @@ struct CourseDetail: View {
                     
                     Text("Design a custom table cell style for nonstandard table rows. Standard styles are great for use in a variety of common scenarios, but some content or your overall app design may call for a heavily customized table appearance. To learn how to create your own cells, see Customizing Cells in Table View Programming Guide for iOS.")
                         .font(.footnote)
+                        .fontWeight(.light)
                         .padding(.top, 5.0)
                         
                     Button(action: {
