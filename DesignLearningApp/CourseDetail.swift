@@ -14,25 +14,27 @@ struct CourseDetail: View {
                 VStack(alignment: .leading) {
                     Text("Typography Basics")
                         .font(.title2)
-                        .fontWeight(.light)
+                        .fontWeight(.bold)
                         .foregroundColor(Color("judul"))
                         .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
                         .padding(.bottom, 5.0)
                         
                     Text("Design a custom table cell style for nonstandard table rows. Standard styles are great for use in a variety of common scenarios, but some content or your overall app design may call for a heavily customized table appearance. To learn how to create your own cells, see Customizing Cells in Table View Programming Guide for iOS.")
                         .font(.footnote)
-                        .fontWeight(.light)
+                        .fontWeight(.regular)
                         .multilineTextAlignment(.leading)
                         
                     
                     Text("Most Contaced Tracker")
                         .font(.body)
+                        .fontWeight(.regular)
                         .foregroundColor(Color.gray)
                         .padding(.top)
                         
                     
                     Text("doubleclick.net was prevented from profiling you across 2 websites")
                         .font(.body)
+                        .fontWeight(.semibold)
                         .padding(.bottom, 5.0)
                     
                     
@@ -45,7 +47,7 @@ struct CourseDetail: View {
                     
                     Text("Design a custom table cell style for nonstandard table rows. Standard styles are great for use in a variety of common scenarios, but some content or your overall app design may call for a heavily customized table appearance. To learn how to create your own cells, see Customizing Cells in Table View Programming Guide for iOS.")
                         .font(.footnote)
-                        .fontWeight(.light)
+                        .fontWeight(.regular)
                         .padding(.top, 5.0)
                         
                     Button(action: {
