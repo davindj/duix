@@ -8,8 +8,16 @@
 import SwiftUI
 
 struct CourseDetail: View {
+    @State private var showingSheet = false
+    @State private var showingResultSheet = false
+    @State private var result: Float = 0
+    
+    func quizSubmit(score: Float){
+        result = score
+        showingResultSheet = true
+        showingSheet = false
+    }
     var body: some View {
-        NavigationView {
             ScrollView {
                 VStack(alignment: .leading) {
                     
@@ -23,16 +31,17 @@ struct CourseDetail: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.horizontal)
-            }
+            }.navigationTitle("Typography")
         }
     }
-}
 
 struct CourseDetail_Previews: PreviewProvider {
     static var previews: some View {
         CourseDetail()
     }
 }
+
+
 
 struct title: View {
     var body: some View {
@@ -41,12 +50,13 @@ struct title: View {
             .fontWeight(.bold)
             .foregroundColor(Color("judul"))
             .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
-            .padding(.bottom, 5.0)
+            .padding(.top, 25)
         
         Text("Apple provides two type families you can use in your iOS apps.")
             .font(.footnote)
             .fontWeight(.regular)
             .multilineTextAlignment(.leading)
+            .padding(.top, 5)
     }
 }
 
@@ -108,20 +118,20 @@ struct linebawah: View {
             .multilineTextAlignment(.leading)
             .padding(.top, 2.0)
         
-        Button(action: {
-            
-            print("ASHIAP")
-        }) {
-            Text("Take Assesment Quiz")
-                .font(.body)
-                .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-                .frame(width: /*@START_MENU_TOKEN@*/360.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/50.0/*@END_MENU_TOKEN@*/)
-                .background(Color("warna_button"))
-                .foregroundColor(.white)
-                .cornerRadius(10)
-            
-        }
-        .padding(.top)
+        
+        
+        
+            QuizView()
+           // Button {
+//                Text("Take Assesment Quiz")
+//                    .font(.body)
+//                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+//                    .frame(width: /*@START_MENU_TOKEN@*/360.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/50.0/*@END_MENU_TOKEN@*/)
+//                    .background(Color("warna_button"))
+//                    .foregroundColor(.white)
+//                    .cornerRadius(10)
+//                
+//            }
     }
 }
 

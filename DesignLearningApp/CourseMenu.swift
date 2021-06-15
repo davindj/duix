@@ -49,7 +49,7 @@ struct PageCourse: View{
                 
                 
             }.padding(.top, 200)
-        }.navigationBarTitle("", displayMode: .inline)
+            }.navigationBarTitle("Course Menu", displayMode: .automatic)
         
         
     }
@@ -127,6 +127,38 @@ struct LessonsTitle: View{
 }
 
 
+struct LessonsItem: View{
+    var title: String
+    var desc: String
+    var image : String
+    var body: some View{
+        
+        NavigationLink(destination: CourseDetail()){
+            
+            HStack{
+                Image(image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit )
+                    .frame(width: 90, height: 100, alignment: .center)
+                
+                
+                VStack (alignment: .leading, spacing: 10){
+                    Text(title)
+                        .font(.callout)
+                        .foregroundColor(Color("Subtitle"))
+                    
+                    Text(desc)
+                        .font(.caption2)
+                        .padding(.trailing,30)
+                    
+                    
+                    
+                }
+            }
+        }
+    }
+}
+
 struct Typhography: View{
     var body: some View{
         
@@ -150,7 +182,6 @@ struct Typhography: View{
         
                 
             }
-            
         }
     }
 }
@@ -185,82 +216,13 @@ struct ListContent: View {
     var body: some View{
         List{
             
-            Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                
-                Typhography()
-                
-            }.padding(.horizontal, 2)
-            //.padding()
-            .background(Color("Button"))
-            .cornerRadius(15)
-            .frame(width: 350, height: 100, alignment: .leading)
+            LessonsItem(title: "Typography", desc: "Design a custom table cell style for nonstandard table rows. ", image: "Asset_Tyh")
+            
+            LessonsItem(title: "Color Palette", desc: "Design a custom table cell style for nonstandard table rows.", image: "Asset_CP")
             
             
-            Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                
-                ColorPalette()
-                
-            }.padding(.horizontal, 2)
-            //.padding()
-            .background(Color("Button"))
-            .cornerRadius(15)
             
-            .frame(width: 350, height: 100, alignment: .leading)
             
-            Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                
-                ColorPalette()
-                
-            }.padding(.horizontal, 2)
-            //.padding()
-            .background(Color("Button"))
-            .cornerRadius(15)
-            
-            .frame(width: 350, height: 100, alignment: .leading)
-            
-            Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                
-                ColorPalette()
-                
-            }.padding(.horizontal, 2)
-            //.padding()
-            .background(Color("Button"))
-            .cornerRadius(15)
-            
-            .frame(width: 350, height: 100, alignment: .leading)
-            
-            Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                
-                ColorPalette()
-                
-            }.padding(.horizontal, 2)
-            //.padding()
-            .background(Color("Button"))
-            .cornerRadius(15)
-            
-            .frame(width: 350, height: 100, alignment: .leading)
-            
-            Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                
-                ColorPalette()
-                
-            }.padding(.horizontal, 2)
-            //.padding()
-            .background(Color("Button"))
-            .cornerRadius(15)
-            
-            .frame(width: 350, height: 100, alignment: .leading)
-            
-            Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                
-                ColorPalette()
-                
-            }.padding(.horizontal, 2)
-            //.padding()
-            .background(Color("Button"))
-            .cornerRadius(15)
-            
-            .frame(width: 350, height: 100, alignment: .leading)
         
         }
         
