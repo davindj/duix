@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct LearningPathList: View {
-    var paths = ["Beginer", "Intermediate", "Expert"]
+    var paths = ["Beginner", "Intermediate", "Expert"]
     var body: some View {
-        NavigationView{
+       
             VStack(alignment:.center){
                 ForEach(paths.sorted(), id: \.self){path in
-                    LearningPathItem(path: path)
+                    LearningPathItem(path: path).padding(.bottom, 15)
                 }
                 Spacer().frame(height:32)
                 Button(action: {}, label: {
@@ -34,7 +34,6 @@ struct LearningPathList: View {
             .foregroundColor(Color("appSecondaryColor"))
         }
     }
-}
 
 struct LearningPathList_Previews: PreviewProvider {
     static var previews: some View {

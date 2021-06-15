@@ -9,37 +9,8 @@ import SwiftUI
 
 struct CourseMenu: View {
     var body: some View {
-        ZStack{
-            
-            TabView {
-                PageCourse()
-                    .tabItem {
-                        Image(systemName: "point.topleft.down.curvedto.point.bottomright.up")
-                        Text("Path")
-                    }
-                
-                PageCourse()
-                    .tabItem {
-                        Image(systemName: "book.closed.fill")
-                        Text("Materials")
-                    }
-                
-                PageCourse()
-                    .tabItem {
-                        Image(systemName: "paintpalette.fill")
-                        Text("Reference")
-                    }
-                
-                PageCourse()
-                    .tabItem {
-                        Image(systemName: "person.fill")
-                        Text("Profile")
-                    }
-                
-            }
-            
-        }
         
+        PageCourse()
         
     }
 }
