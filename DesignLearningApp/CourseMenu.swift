@@ -28,35 +28,20 @@ struct CourseMenu_Previews: PreviewProvider {
 
 struct PageCourse: View{
     var body: some View{
-        
-        
-            ZStack{
-                
-               Background()
-                
-                VStack (spacing:5){
-                    
+        ZStack{
+            Background()
+            ScrollView{
+                VStack(spacing:5){
                     LevelCourseTitle()
-                        
-                        LearningCourseTitle()
-                        
-                        BodyExplain()
-                        
-                        LessonsTitle()
-                        
-                        ListContent()
-                
-                
-                
-            }.padding(.top, 200)
-            }.navigationBarTitle("Course Menu", displayMode: .automatic)
-        
-        
+                    LearningCourseTitle()
+                    BodyExplain()
+                    LessonsTitle()
+                    ListContent()
+                }.padding(.top, 200)
+            }
+        }.navigationBarTitle("Course Menu", displayMode: .automatic)
     }
 }
-
-
-
 
 struct Background: View{
     var body: some View{

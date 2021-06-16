@@ -9,12 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) var moc
-    
     @State private var showingSheet = false
     
     var body: some View {
         ZStack{
-            
             TabView {
                 LearningPathNav()
                     .tabItem {
@@ -39,16 +37,10 @@ struct ContentView: View {
                         Image(systemName: "person.fill")
                         Text("Profile")
                     }
-                
             }
-            
         }
-        
-        
     }
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
