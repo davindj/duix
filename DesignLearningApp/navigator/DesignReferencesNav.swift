@@ -10,7 +10,7 @@ import SwiftUI
 struct DesignReferencesNav: View {
     var body: some View {
         NavigationView{
-            Text("alam ganteng")
+            DesignRefHome()
         }
     }
 }
