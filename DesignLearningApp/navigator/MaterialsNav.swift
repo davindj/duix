@@ -10,13 +10,13 @@ import SwiftUI
 struct MaterialsNav: View {
     var body: some View {
         NavigationView{
-            Text("alam ganteng")
+            MaterialsHomeView()
         }
     }
 }
 
 struct MaterialsNav_Previews: PreviewProvider {
     static var previews: some View {
-        MaterialsNav()
+        MaterialsNav().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
