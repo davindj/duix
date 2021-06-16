@@ -10,7 +10,7 @@ import SwiftUI
 struct CourseItem: View {
     var course: Courses
     var body: some View{
-        NavigationLink(destination: CourseDetail()){
+        NavigationLink(destination: CourseDetail(course: course)){
             HStack{
                 Image(course.thumbnail!)
                     .resizable()

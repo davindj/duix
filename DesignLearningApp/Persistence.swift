@@ -63,23 +63,25 @@ struct PersistenceController {
         
         // Quiz
         var quiz1 = Quizzes(context: moc)
-        quiz1.question = "Question 1..."
-        quiz1.option1 = "Option 1..."
-        quiz1.option2 = "Option 2..."
-        quiz1.option3 = "Option 3..."
-        quiz1.option4 = "Option 4..."
-        quiz1.answer = 1 // Index dlm zero based
+        quiz1.question = "Mana yang merupakan kombinasi typography terbaik?"
+        quiz1.option1 = "Asset_CP"
+        quiz1.option2 = "Asset_Tyh"
+        quiz1.option3 = "Asset_Tyh"
+        quiz1.option4 = "Asset_Tyh"
+        quiz1.answer = 0 // Index dlm zero based
         
         var quiz2 = Quizzes(context: moc)
-        quiz2.question = "Question 2..."
-        quiz2.option1 = "Option 1..."
-        quiz2.option2 = "Option 2..."
-        quiz2.option3 = "Option 3..."
-        quiz2.option4 = "Option 4..."
+        quiz2.question = "Manakah jenis typeface yang dapat digunakan untuk desain aplikasi?"
+        quiz2.option1 = "Asset_Tyh"
+        quiz2.option2 = "Asset_CP"
+        quiz2.option3 = "Asset_Tyh"
+        quiz2.option4 = "Asset_Tyh"
         quiz2.answer = 1 // Index dlm zero based
         
         course1.addToQuizzes(quiz1)
         course1.addToQuizzes(quiz2)
+        course2.addToQuizzes(quiz1)
+        course2.addToQuizzes(quiz2)
 
         
         //== END OF INSERT DATA ==

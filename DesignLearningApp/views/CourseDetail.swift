@@ -8,36 +8,34 @@
 import SwiftUI
 
 struct CourseDetail: View {
-    @State private var showingSheet = false
-    @State private var showingResultSheet = false
-    @State private var result: Float = 0
-    
-    func quizSubmit(score: Float){
-        result = score
-        showingResultSheet = true
-        showingSheet = false
-    }
+    var course: Courses
     var body: some View {
-            ScrollView {
-                VStack(alignment: .leading) {
-                    
-                    title()
-                        
-                    sanfran()
-                                                                
-                    newyork()
-                    
-                    linebawah()
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal)
-            }.navigationTitle("Typography")
+        ScrollView {
+            VStack(alignment: .leading) {
+                title()
+                sanfran()
+                newyork()
+                linebawah()
+                QuizView(quizzes: course.quizzes?.allObjects as! [Quizzes])
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.horizontal)
+        }.navigationTitle(course.title!)
+        .onAppear{
+            print(course.quizzes?.allObjects as! [Quizzes])
         }
     }
+}
 
 struct CourseDetail_Previews: PreviewProvider {
     static var previews: some View {
-        CourseDetail()
+        let course = Courses(context: PersistenceController.preview.container.viewContext)
+        course.thumbnail = "Asset_CP"
+        course.title = "Typhography"
+        course.desc = "Design a custom table cell style for nonstandard table rows. Standard styles are great for use in a variety of common scenarios, but some content or your overall app design may call for a heavily customized table appearance. To learn how to create your own cells, see Customizing Cells in Table View Programming Guide for iOS."
+        return NavigationView{
+            CourseDetail(course: course)
+        }
     }
 }
 
@@ -51,7 +49,6 @@ struct title: View {
             .foregroundColor(Color("judul"))
             .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
             .padding(.top, 25)
-        
         Text("Apple provides two type families you can use in your iOS apps.")
             .font(.footnote)
             .fontWeight(.regular)
@@ -67,7 +64,6 @@ struct sanfran: View {
             .fontWeight(.bold)
             .multilineTextAlignment(.leading)
             .padding(.top, 2.0)
-        
         Text("San Francisco is a sans serif type family that includes SF Pro, SF Pro Rounded, SF Mono, SF Compact, and SF Compact Rounded. SF Pro is the system font in iOS, macOS, and tvOS; SF Compact is the system font in watchOS. Designed to match the visual clarity of the platform UIs, the system fonts are legible and neutral.")
             .font(.footnote)
             .fontWeight(.regular)
@@ -117,21 +113,6 @@ struct linebawah: View {
             .fontWeight(.regular)
             .multilineTextAlignment(.leading)
             .padding(.top, 2.0)
-        
-        
-        
-        
-            QuizView()
-           // Button {
-//                Text("Take Assesment Quiz")
-//                    .font(.body)
-//                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-//                    .frame(width: /*@START_MENU_TOKEN@*/360.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/50.0/*@END_MENU_TOKEN@*/)
-//                    .background(Color("warna_button"))
-//                    .foregroundColor(.white)
-//                    .cornerRadius(10)
-//                
-//            }
     }
 }
 

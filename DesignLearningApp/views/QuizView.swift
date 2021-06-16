@@ -9,49 +9,50 @@ import SwiftUI
 
 struct Question: Identifiable{
     let id = UUID()
-    var question: String
-    var options: [Image]
+    var question: Quizzes
     var answer: Int = -1 // Jawaban User
 }
 
 struct QuizView: View {
+    var quizzes: [Quizzes]
+    
     @State private var showingSheet = false
     @State private var showingResultSheet = false
-    @State private var result: Float = 0
+    @State private var result: Int = 0
     
     @FetchRequest(entity: LearningPaths.entity(), sortDescriptors: []) var learningPaths: FetchedResults<LearningPaths>
     
-    func quizSubmit(score: Float){
-        result = score
-        showingResultSheet = true
+    func quizSubmit(score: Int){
         showingSheet = false
+        showingResultSheet = true
+        result = score
     }
     
     var body: some View {
         VStack{
-            Button("CLick Me"){
-                print(learningPaths)
-                if learningPaths.count > 0{
-                    print(learningPaths[0].name)
-                    print(learningPaths[0].difficulty?.name)
-                    print(learningPaths[0].courses?.allObjects as! [Courses])
-                }
-            }
-            Button("Show Sheet") {
+            Button{
                 showingSheet = true
+            }label:{
+                Text("Take Assesment Quiz")
+                    .font(.body)
+                    .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
+                    .frame(width: /*@START_MENU_TOKEN@*/360.0/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/50.0/*@END_MENU_TOKEN@*/)
+                    .background(Color("warna_button"))
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
             }
             .sheet(isPresented: $showingSheet) {
-                QuizModalView(onQuizSubmit: quizSubmit)
+                QuizModalView(quizzes: quizzes, onQuizSubmit: quizSubmit)
             }
             .sheet(isPresented: $showingResultSheet){
-                QuizResultView(isPresenting: $showingResultSheet, scoreValue: result)
+                QuizResultView(isPresenting: $showingResultSheet, scoreValue: $result)
             }
         }
     }
 }
 
 struct QuizModalView: View {
-    var onQuizSubmit: (Float)->Void
+    var onQuizSubmit: (Int)->Void
     
     @State var questions: [Question] = []
     @State var showingAlert: Bool = false
@@ -82,7 +83,8 @@ struct QuizModalView: View {
         ScrollView{
             VStack{
                 ForEach(questions) { question in
-                    QuestionView(aIdx: question.answer, changeAnswer: self.changeAnswer(question: question))
+                    QuestionView(question: question,
+                                 changeAnswer: self.changeAnswer(question: question))
                     Divider()
                 }
                 // Button Submit
@@ -90,15 +92,15 @@ struct QuizModalView: View {
                     // Check apakah sudah jawab semua atau belum
                     let isDoneAnswering = !questions.contains(where: { $0.answer == -1 })
                     if isDoneAnswering {
-                        var score: Float = 0
+                        var score: Int = 0
                         for question in questions{
-                            if question.answer == 0{
-                                score += 1
+                            print(question.answer, question.question.answer)
+                            if question.answer == question.question.answer{
+                                score += 100
                             }
                         }
-                        score = score / Float(questions.count)
+                        score /= questions.count
                         self.onQuizSubmit(score)
-                        print("Well Done")
                     }else{
                         showingAlert.toggle()
                     }
@@ -124,34 +126,30 @@ struct QuizModalView: View {
             .padding(.horizontal, 30)
             .padding(.top, 40)
         }
-        .onAppear{ initQuiz() }
     }
     
     // Constructor?
-    func initQuiz(){
-        let listQuestion: [Question] = [
-            Question(question: "Mana yang merupakan kombinasi typography terbaik?", options: []),
-            Question(question: "Mana yang merupakan kombinasi terbaik?", options: []),
-            Question(question: "Mana yang merupakan typography terbaik?", options: []),
-            Question(question: "Mana yang merupakan kombinasi typography?", options: []),
-            Question(question: "Mana kombinasi typography terbaik?", options: [])
-        ]
+    init(quizzes: [Quizzes], onQuizSubmit: @escaping (Int)->Void){
+        var listQuestion: [Question] = []
+        for quiz in quizzes{
+            listQuestion.append(Question(question: quiz, answer: -1))
+        }
         self.questions = listQuestion
-        print("Struct updated")
+        self.onQuizSubmit = onQuizSubmit
     }
 }
 
 // MARK: Question View (Component)
 struct QuestionView: View{
     // Dari Parent
-    var aIdx: Int
+    var question: Question
     var changeAnswer: (Int) -> Void
     // Return
     var body: some View{
         Group{
             // Pertanyaan
             HStack{
-                Text("Mana yang merupakan kombinasi typography terbaik?")
+                Text(question.question.question!)
                     .bold()
                     .font(.title)
                     .foregroundColor(Color.init(hex: "105476"))
@@ -161,12 +159,12 @@ struct QuestionView: View{
             // Jawaban
             VStack(spacing: 10){
                 HStack{
-                    AnswerView(isChoosen: aIdx == 0, content: "Nomor 1"){ changeAnswer(0) }
-                    AnswerView(isChoosen: aIdx == 1, content: "Nomor 2"){ changeAnswer(1) }
+                    AnswerView(isChoosen: question.answer == 0, image: question.question.option1!){ changeAnswer(0) }
+                    AnswerView(isChoosen: question.answer == 1, image: question.question.option2!){ changeAnswer(1) }
                 }
                 HStack{
-                    AnswerView(isChoosen: aIdx == 2, content: "Nomor 3"){ changeAnswer(2) }
-                    AnswerView(isChoosen: aIdx == 3, content: "Nomor 4"){ changeAnswer(3) }
+                    AnswerView(isChoosen: question.answer == 2, image: question.question.option3!){ changeAnswer(2) }
+                    AnswerView(isChoosen: question.answer == 3, image: question.question.option4!){ changeAnswer(3) }
                 }
             }
         }
@@ -176,7 +174,7 @@ struct QuestionView: View{
 // MARK: Answer View (Component)
 struct AnswerView: View {
     var isChoosen: Bool
-    var content: String
+    var image: String
     var onAnswerClick: ()->Void
     // Computed Property
     var borderColor: Color{
@@ -189,14 +187,14 @@ struct AnswerView: View {
         Button(){
             self.onAnswerClick()
         }label:{
-            VStack {
-                Text(content).font(.body)
-            }
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 160)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(self.borderColor, lineWidth: self.borderWidth)
-            )
+            Image(image)
+                .resizable()
+                .scaledToFit()
+                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 160)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(self.borderColor, lineWidth: self.borderWidth)
+                )
         }
     }
 }
@@ -205,7 +203,6 @@ struct AnswerView: View {
 
 struct QuizView_Previews: PreviewProvider {
     static var previews: some View {
-        QuizView()
-//        QuizModalView()
+        QuizView(quizzes: [])
     }
 }

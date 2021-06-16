@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProgressBarView: View {
-    @State var scoreValue: Float = 0.0
+    var scoreValue: Float
     var body: some View {
         ZStack{
             Circle()
