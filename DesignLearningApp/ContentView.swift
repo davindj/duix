@@ -16,25 +16,25 @@ struct ContentView: View {
         ZStack{
             
             TabView {
-                PageCourse()
+                LearningPathNav()
                     .tabItem {
                         Image(systemName: "point.topleft.down.curvedto.point.bottomright.up")
                         Text("Path")
                     }
                 
-                PageCourse()
+                MaterialsNav()
                     .tabItem {
                         Image(systemName: "book.closed.fill")
                         Text("Materials")
                     }
                 
-                PageCourse()
+                DesignReferencesNav()
                     .tabItem {
                         Image(systemName: "paintpalette.fill")
                         Text("Reference")
                     }
                 
-                PageCourse()
+                UserProfilesNav()
                     .tabItem {
                         Image(systemName: "person.fill")
                         Text("Profile")
