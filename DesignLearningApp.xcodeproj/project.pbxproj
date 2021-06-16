@@ -23,6 +23,7 @@
 		B9B771592670C8AB00C67852 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B771582670C8AB00C67852 /* ProgressBarView.swift */; };
 		B9E7B6EA266F569B003D3145 /* LearningPathList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E7B6E9266F569B003D3145 /* LearningPathList.swift */; };
 		B9E7B6EC266F689D003D3145 /* LearningPathItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E7B6EB266F689D003D3145 /* LearningPathItem.swift */; };
+		D7B2F52F2679F662006D16B5 /* MaterialsHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2F52E2679F662006D16B5 /* MaterialsHomeView.swift */; };
 		D7D3183D2670BB460049A695 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D3183C2670BB460049A695 /* QuizView.swift */; };
 		D7D3183F2670C3450049A695 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D3183E2670C3450049A695 /* extensions.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		B9B771582670C8AB00C67852 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		B9E7B6E9266F569B003D3145 /* LearningPathList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningPathList.swift; sourceTree = "<group>"; };
 		B9E7B6EB266F689D003D3145 /* LearningPathItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningPathItem.swift; sourceTree = "<group>"; };
+		D7B2F52E2679F662006D16B5 /* MaterialsHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialsHomeView.swift; sourceTree = "<group>"; };
 		D7D3183C2670BB460049A695 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		D7D3183E2670C3450049A695 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +133,7 @@
 			children = (
 				B9B771562670C49A00C67852 /* QuizResultView.swift */,
 				D7D3183C2670BB460049A695 /* QuizView.swift */,
+				D7B2F52E2679F662006D16B5 /* MaterialsHomeView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			files = (
 				2BB7DD88267898EB005CE163 /* MaterialsNav.swift in Sources */,
 				B9278A9B266A276900F36F84 /* Persistence.swift in Sources */,
+				D7B2F52F2679F662006D16B5 /* MaterialsHomeView.swift in Sources */,
 				B9B771592670C8AB00C67852 /* ProgressBarView.swift in Sources */,
 				B9278A9E266A276900F36F84 /* DesignLearningApp.xcdatamodeld in Sources */,
 				2BB7DD7E2678935D005CE163 /* CourseMenu.swift in Sources */,

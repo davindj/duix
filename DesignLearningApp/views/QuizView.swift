@@ -34,7 +34,7 @@ struct QuizView: View {
                 if learningPaths.count > 0{
                     print(learningPaths[0].name)
                     print(learningPaths[0].difficulty?.name)
-                    print(learningPaths[0].courses)
+                    print(learningPaths[0].courses?.allObjects as! [Courses])
                 }
             }
             Button("Show Sheet") {
