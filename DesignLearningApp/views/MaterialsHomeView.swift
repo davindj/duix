@@ -8,38 +8,29 @@
 import SwiftUI
 
 struct MaterialsHomeView: View {
-    let names = ["Holly", "Josh", "Rhonda", "Ted"]
     @State private var searchText = ""
+    @FetchRequest(entity: Courses.entity(), sortDescriptors: []) var courses: FetchedResults<Courses>
 
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(searchResults, id: \.self) { name in
-                    NavigationLink(destination: Text(name)) {
-                        Text(name)
-                    }
+        ScrollView{
+            VStack{
+                ForEach(courses){ course in
+                    CourseItem(course: course)
                 }
             }
-//            .searchable(text: $searchText) {
-//                ForEach(searchResults, id: \.self) { result in
-//                    Text("Are you looking for \(result)?").searchCompletion(result)
-//                }
-//            }
-//            .navigationTitle("Contacts")
+            .padding(.top)
         }
-    }
-
-    var searchResults: [String] {
-        if searchText.isEmpty {
-            return names
-        } else {
-            return names.filter { $0.contains(searchText) }
-        }
+        .padding(.leading , 18)
+        .navigationTitle("Materials")
+        .navigationBarTitleDisplayMode(.inline)
+        .foregroundColor(Color("appSecondaryColor"))
     }
 }
 
 struct MaterialsHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        MaterialsHomeView()
+        NavigationView{
+            MaterialsHomeView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        }
     }
 }

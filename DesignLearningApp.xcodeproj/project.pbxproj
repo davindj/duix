@@ -23,6 +23,7 @@
 		B9B771592670C8AB00C67852 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B771582670C8AB00C67852 /* ProgressBarView.swift */; };
 		B9E7B6EA266F569B003D3145 /* LearningPathList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E7B6E9266F569B003D3145 /* LearningPathList.swift */; };
 		B9E7B6EC266F689D003D3145 /* LearningPathItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E7B6EB266F689D003D3145 /* LearningPathItem.swift */; };
+		D70F6556267A9128009E5BBB /* CourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70F6555267A9128009E5BBB /* CourseItem.swift */; };
 		D7B2F52F2679F662006D16B5 /* MaterialsHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2F52E2679F662006D16B5 /* MaterialsHomeView.swift */; };
 		D7D3183D2670BB460049A695 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D3183C2670BB460049A695 /* QuizView.swift */; };
 		D7D3183F2670C3450049A695 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D3183E2670C3450049A695 /* extensions.swift */; };
@@ -47,6 +48,7 @@
 		B9B771582670C8AB00C67852 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		B9E7B6E9266F569B003D3145 /* LearningPathList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningPathList.swift; sourceTree = "<group>"; };
 		B9E7B6EB266F689D003D3145 /* LearningPathItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningPathItem.swift; sourceTree = "<group>"; };
+		D70F6555267A9128009E5BBB /* CourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseItem.swift; sourceTree = "<group>"; };
 		D7B2F52E2679F662006D16B5 /* MaterialsHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialsHomeView.swift; sourceTree = "<group>"; };
 		D7D3183C2670BB460049A695 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		D7D3183E2670C3450049A695 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				B9B771582670C8AB00C67852 /* ProgressBarView.swift */,
+				D70F6555267A9128009E5BBB /* CourseItem.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				B9278A92266A276800F36F84 /* DesignLearningAppApp.swift in Sources */,
 				B9E7B6EA266F569B003D3145 /* LearningPathList.swift in Sources */,
 				B9E7B6EC266F689D003D3145 /* LearningPathItem.swift in Sources */,
+				D70F6556267A9128009E5BBB /* CourseItem.swift in Sources */,
 				D7D3183D2670BB460049A695 /* QuizView.swift in Sources */,
 				D7D3183F2670C3450049A695 /* extensions.swift in Sources */,
 				2BB7DD8B267899E5005CE163 /* DesignReferencesNav.swift in Sources */,

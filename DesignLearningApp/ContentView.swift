@@ -19,13 +19,11 @@ struct ContentView: View {
                         Image(systemName: "point.topleft.down.curvedto.point.bottomright.up")
                         Text("Path")
                     }
-                
                 MaterialsNav()
                     .tabItem {
                         Image(systemName: "book.closed.fill")
                         Text("Materials")
                     }
-                
                 DesignReferencesNav()
                     .tabItem {
                         Image(systemName: "paintpalette.fill")
