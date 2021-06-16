@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct LearningPathList: View {
-    var paths = ["Beginner", "Intermediate", "Expert"]
+    @FetchRequest(entity: LearningPaths.entity(), sortDescriptors: []) var learningPaths: FetchedResults<LearningPaths>
+    
     var body: some View {
         VStack(alignment:.center){
-            ForEach(paths.sorted(), id: \.self){path in
-                LearningPathItem(path: path).padding(.bottom, 15)
+            VStack(spacing: 15){
+                ForEach(learningPaths){path in
+                    LearningPathItem(learningPath: path)
+                }
             }
             Spacer().frame(height:32)
             Button(action: {}, label: {
@@ -36,6 +39,8 @@ struct LearningPathList: View {
 
 struct LearningPathList_Previews: PreviewProvider {
     static var previews: some View {
-        LearningPathList()
+        return NavigationView{
+            LearningPathList().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        }
     }
 }

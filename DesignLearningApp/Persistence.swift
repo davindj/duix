@@ -53,6 +53,14 @@ struct PersistenceController {
         course2.score = 0
         course2.isDone = false
         
+        path1.addToCourses(course1)
+        path1.addToCourses(course2)
+        path2.addToCourses(course1)
+        path2.addToCourses(course2)
+        path3.addToCourses(course1)
+        path3.addToCourses(course2)
+
+        
         // Quiz
         var quiz1 = Quizzes(context: moc)
         quiz1.question = "Question 1..."
