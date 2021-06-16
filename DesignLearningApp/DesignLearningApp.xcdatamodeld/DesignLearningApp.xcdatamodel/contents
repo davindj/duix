@@ -1,9 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Courses" representedClassName="Courses" syncable="YES" codeGenerationType="class">
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="thumbnail" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="designs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Designs" inverseName="courses" inverseEntity="Designs"/>
+        <relationship name="learningPaths" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LearningPaths" inverseName="courses" inverseEntity="LearningPaths"/>
+        <relationship name="quizzes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Quizzes" inverseName="course" inverseEntity="Quizzes"/>
+    </entity>
+    <entity name="Designers" representedClassName="Designers" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="designs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Designs" inverseName="designer" inverseEntity="Designs"/>
+    </entity>
+    <entity name="Designs" representedClassName="Designs" syncable="YES" codeGenerationType="class">
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="image1" optional="YES" attributeType="String"/>
+        <attribute name="image2" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="courses" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Courses" inverseName="designs" inverseEntity="Courses"/>
+        <relationship name="designer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Designers" inverseName="designs" inverseEntity="Designers"/>
+    </entity>
+    <entity name="Difficulties" representedClassName="Difficulties" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="learningPaths" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LearningPaths" inverseName="difficulty" inverseEntity="LearningPaths"/>
+    </entity>
+    <entity name="LearningPaths" representedClassName="LearningPaths" syncable="YES" codeGenerationType="class">
+        <attribute name="desc" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="courses" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Courses" inverseName="learningPaths" inverseEntity="Courses"/>
+        <relationship name="difficulty" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Difficulties" inverseName="learningPaths" inverseEntity="Difficulties"/>
+    </entity>
+    <entity name="Quizzes" representedClassName="Quizzes" syncable="YES" codeGenerationType="class">
+        <attribute name="answer" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="option1" optional="YES" attributeType="String" customClassName="NSString"/>
+        <attribute name="option2" optional="YES" attributeType="String"/>
+        <attribute name="option3" optional="YES" attributeType="String"/>
+        <attribute name="option4" optional="YES" attributeType="String"/>
+        <attribute name="question" optional="YES" attributeType="String"/>
+        <relationship name="course" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Courses" inverseName="quizzes" inverseEntity="Courses"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="Quizzes" positionX="-88.0792236328125" positionY="-114.0924682617188" width="128" height="134"/>
+        <element name="Difficulties" positionX="-366.2406616210938" positionY="179.1218566894531" width="128" height="59"/>
+        <element name="LearningPaths" positionX="-284.8912963867188" positionY="-12.21267700195312" width="128" height="104"/>
+        <element name="Courses" positionX="-66.71435546875" positionY="99.510009765625" width="128" height="134"/>
+        <element name="Designers" positionX="143.9774169921875" positionY="-77.58352661132812" width="128" height="59"/>
+        <element name="Designs" positionX="188.5992431640625" positionY="102.0658569335938" width="128" height="119"/>
     </elements>
 </model>

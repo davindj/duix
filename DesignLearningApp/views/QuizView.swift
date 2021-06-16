@@ -19,6 +19,8 @@ struct QuizView: View {
     @State private var showingResultSheet = false
     @State private var result: Float = 0
     
+    @FetchRequest(entity: LearningPaths.entity(), sortDescriptors: []) var learningPaths: FetchedResults<LearningPaths>
+    
     func quizSubmit(score: Float){
         result = score
         showingResultSheet = true
@@ -26,14 +28,24 @@ struct QuizView: View {
     }
     
     var body: some View {
-        Button("Show Sheet") {
-            showingSheet = true
-        }
-        .sheet(isPresented: $showingSheet) {
-            QuizModalView(onQuizSubmit: quizSubmit)
-        }
-        .sheet(isPresented: $showingResultSheet){
-            QuizResultView(isPresenting: $showingResultSheet, scoreValue: result)
+        VStack{
+            Button("CLick Me"){
+                print(learningPaths)
+                if learningPaths.count > 0{
+                    print(learningPaths[0].name)
+                    print(learningPaths[0].difficulty?.name)
+                    print(learningPaths[0].courses)
+                }
+            }
+            Button("Show Sheet") {
+                showingSheet = true
+            }
+            .sheet(isPresented: $showingSheet) {
+                QuizModalView(onQuizSubmit: quizSubmit)
+            }
+            .sheet(isPresented: $showingResultSheet){
+                QuizResultView(isPresenting: $showingResultSheet, scoreValue: result)
+            }
         }
     }
 }
