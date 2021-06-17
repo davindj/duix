@@ -11,7 +11,7 @@ struct LearningPathItem: View {
     var path = ""
     var body: some View {
         
-        NavigationLink(destination: CourseMenu()){
+        NavigationLink(destination: CourseMenu(courseTitle: path)){
             
             ZStack{
                 Image(path)

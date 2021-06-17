@@ -20,13 +20,9 @@ struct CourseDetail: View {
     var body: some View {
             ScrollView {
                 VStack(alignment: .leading) {
-                    
                     title()
-                        
                     sanfran()
-                                                                
                     newyork()
-                    
                     linebawah()
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
