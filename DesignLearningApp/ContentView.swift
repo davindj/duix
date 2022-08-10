@@ -24,17 +24,6 @@ struct ContentView: View {
                         Image(systemName: "book.closed.fill")
                         Text("Materials")
                     }
-                DesignReferencesNav()
-                    .tabItem {
-                        Image(systemName: "paintpalette.fill")
-                        Text("Reference")
-                    }
-                
-                UserProfilesNav()
-                    .tabItem {
-                        Image(systemName: "person.fill")
-                        Text("Profile")
-                    }
             }
         }
     }
