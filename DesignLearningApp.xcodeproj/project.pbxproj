@@ -22,8 +22,6 @@
 		B9E7B6EA266F569B003D3145 /* LearningPathList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E7B6E9266F569B003D3145 /* LearningPathList.swift */; };
 		B9E7B6EC266F689D003D3145 /* LearningPathItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E7B6EB266F689D003D3145 /* LearningPathItem.swift */; };
 		D70F6556267A9128009E5BBB /* CourseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70F6555267A9128009E5BBB /* CourseItem.swift */; };
-		D71E73EA267A97D3005589E1 /* DesignRefHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E73E9267A97D3005589E1 /* DesignRefHome.swift */; };
-		D71E73EC267A97E2005589E1 /* DesignRefDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E73EB267A97E2005589E1 /* DesignRefDetail.swift */; };
 		D71E73EE267A97F2005589E1 /* DesignRefItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71E73ED267A97F2005589E1 /* DesignRefItem.swift */; };
 		D7B2F52F2679F662006D16B5 /* MaterialsHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B2F52E2679F662006D16B5 /* MaterialsHomeView.swift */; };
 		D7D3183D2670BB460049A695 /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D3183C2670BB460049A695 /* QuizView.swift */; };
@@ -48,8 +46,6 @@
 		B9E7B6E9266F569B003D3145 /* LearningPathList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningPathList.swift; sourceTree = "<group>"; };
 		B9E7B6EB266F689D003D3145 /* LearningPathItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningPathItem.swift; sourceTree = "<group>"; };
 		D70F6555267A9128009E5BBB /* CourseItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseItem.swift; sourceTree = "<group>"; };
-		D71E73E9267A97D3005589E1 /* DesignRefHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignRefHome.swift; sourceTree = "<group>"; };
-		D71E73EB267A97E2005589E1 /* DesignRefDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignRefDetail.swift; sourceTree = "<group>"; };
 		D71E73ED267A97F2005589E1 /* DesignRefItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignRefItem.swift; sourceTree = "<group>"; };
 		D7B2F52E2679F662006D16B5 /* MaterialsHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialsHomeView.swift; sourceTree = "<group>"; };
 		D7D3183C2670BB460049A695 /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
@@ -138,8 +134,6 @@
 				D7D3183C2670BB460049A695 /* QuizView.swift */,
 				B9B771562670C49A00C67852 /* QuizResultView.swift */,
 				D7B2F52E2679F662006D16B5 /* MaterialsHomeView.swift */,
-				D71E73E9267A97D3005589E1 /* DesignRefHome.swift */,
-				D71E73EB267A97E2005589E1 /* DesignRefDetail.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -214,7 +208,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BB7DD88267898EB005CE163 /* MaterialsNav.swift in Sources */,
-				D71E73EA267A97D3005589E1 /* DesignRefHome.swift in Sources */,
 				B9278A9B266A276900F36F84 /* Persistence.swift in Sources */,
 				D7B2F52F2679F662006D16B5 /* MaterialsHomeView.swift in Sources */,
 				B9B771592670C8AB00C67852 /* ProgressBarView.swift in Sources */,
@@ -230,7 +223,6 @@
 				D7D3183D2670BB460049A695 /* QuizView.swift in Sources */,
 				D71E73EE267A97F2005589E1 /* DesignRefItem.swift in Sources */,
 				D7D3183F2670C3450049A695 /* extensions.swift in Sources */,
-				D71E73EC267A97E2005589E1 /* DesignRefDetail.swift in Sources */,
 				2BB7DD842678981A005CE163 /* LearningPathNav.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
