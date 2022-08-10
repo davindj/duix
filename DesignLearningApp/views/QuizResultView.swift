@@ -16,7 +16,7 @@ struct QuizResultView: View {
     var title: String{ isGoodScore ? "Great!" : "Not Bad!" }
     
     var message: String{
-        isGoodScore ? "Practice makes perfect, keep up the good work!" :  "Design a custom table cell style for nonstandard table rows. Standard styles are great for use in a variety of common scenarios, but some content or your overall app design may call for a heavily customized table appearance. "
+        isGoodScore ? "Practice makes perfect, keep up the good work!" :  "Failure is the key to success. Please try again, you can do it!"
     }
     
     var body: some View {

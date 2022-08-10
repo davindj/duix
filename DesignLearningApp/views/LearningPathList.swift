@@ -17,15 +17,6 @@ struct LearningPathList: View {
                     LearningPathItem(learningPath: path)
                 }
             }
-            Spacer().frame(height:32)
-            Button(action: {}, label: {
-                Text("Add New Goals").bold()
-            })
-            .frame(maxWidth:343)
-            .padding(.vertical)
-            .background(Color("appPrimaryColor"))
-            .foregroundColor(.white)
-            .mask(RoundedRectangle(cornerRadius: 11))
             Spacer()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
