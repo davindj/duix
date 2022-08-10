@@ -34,3 +34,13 @@ extension Color {
         )
     }
 }
+
+extension Courses{
+    func getArrayCourseContents() -> [CourseContent]{
+        if let courseContents = self.courseContents as? Set<CourseContent> {
+            return courseContents.sorted(by: {$0.ord < $1.ord})
+        } else {
+            return []
+        }
+    }
+}

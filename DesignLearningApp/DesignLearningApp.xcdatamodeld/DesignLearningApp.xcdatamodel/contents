@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CourseContent" representedClassName="CourseContent" syncable="YES" codeGenerationType="class">
+        <attribute name="desc" attributeType="String"/>
+        <attribute name="imageName" optional="YES" attributeType="String"/>
+        <attribute name="ord" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="course" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Courses" inverseName="courseContents" inverseEntity="Courses"/>
+    </entity>
     <entity name="Courses" representedClassName="Courses" syncable="YES" codeGenerationType="class">
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="image" optional="YES" attributeType="String"/>
@@ -7,6 +14,7 @@
         <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="thumbnail" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="courseContents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CourseContent" inverseName="course" inverseEntity="CourseContent"/>
         <relationship name="designs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Designs" inverseName="courses" inverseEntity="Designs"/>
         <relationship name="learningPaths" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LearningPaths" inverseName="courses" inverseEntity="LearningPaths"/>
         <relationship name="quizzes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Quizzes" inverseName="course" inverseEntity="Quizzes"/>
@@ -44,11 +52,12 @@
         <relationship name="course" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Courses" inverseName="quizzes" inverseEntity="Courses"/>
     </entity>
     <elements>
-        <element name="Quizzes" positionX="-88.0792236328125" positionY="-114.0924682617188" width="128" height="134"/>
-        <element name="Difficulties" positionX="-366.2406616210938" positionY="179.1218566894531" width="128" height="59"/>
-        <element name="LearningPaths" positionX="-284.8912963867188" positionY="-12.21267700195312" width="128" height="118"/>
-        <element name="Courses" positionX="-66.71435546875" positionY="99.510009765625" width="128" height="178"/>
+        <element name="Courses" positionX="-66.71435546875" positionY="99.510009765625" width="128" height="179"/>
         <element name="Designers" positionX="143.9774169921875" positionY="-77.58352661132812" width="128" height="59"/>
         <element name="Designs" positionX="188.5992431640625" positionY="102.0658569335938" width="128" height="119"/>
+        <element name="Difficulties" positionX="-366.2406616210938" positionY="179.1218566894531" width="128" height="59"/>
+        <element name="LearningPaths" positionX="-284.8912963867188" positionY="-12.21267700195312" width="128" height="118"/>
+        <element name="Quizzes" positionX="-88.0792236328125" positionY="-114.0924682617188" width="128" height="134"/>
+        <element name="CourseContent" positionX="-186.84326171875" positionY="337.74658203125" width="128" height="118"/>
     </elements>
 </model>
