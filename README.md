@@ -20,7 +20,7 @@ User will have the chance to evaluate their knowledge later at the end of the le
 
 ## How to run
 1. clone / download this project
-2. open **DesignLearningApp/DesignLearningApp.xcodeproj** in [xcode](https://developer.apple.com/xcode/)
+2. open **DesignLearningApp.xcodeproj** in [xcode](https://developer.apple.com/xcode/)
 3. build and run this project
 
 ## Credit
